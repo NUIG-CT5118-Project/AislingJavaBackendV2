@@ -8,7 +8,6 @@ import java.util.Set;
 
 @Entity
 @Table(name = "dish_category")
-// bug with data with relationships one to one, one to many
 @Getter
 @Setter
 public class DishCategory {
@@ -23,6 +22,5 @@ public class DishCategory {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
     private Set<Dish> dishes;
-
 
 }
