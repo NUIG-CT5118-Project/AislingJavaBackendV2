@@ -1,0 +1,23 @@
+USE `takeaway`;
+
+CREATE TABLE IF NOT EXISTS `review` (
+  `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(255) DEFAULT NULL,
+  `comment` VARCHAR(255) DEFAULT NULL,
+  `rating` BIGINT(20) NOT NULL,
+`order_tracking_number` VARCHAR(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) 
+ENGINE=InnoDB
+AUTO_INCREMENT = 1;
+
+-- -----------------------------------------------------
+-- REVIEW
+-- -----------------------------------------------------
+INSERT INTO review(name, comment, rating, order_tracking_number) VALUES ('UserOne', 'UserOneComment', 1, 'orderTrackingNoOne');
+INSERT INTO review(name, comment, rating, order_tracking_number) VALUES ('UserTwo', 'UserTwoComment', 2, 'orderTrackingNoTwo');
+INSERT INTO review(name, comment, rating, order_tracking_number) VALUES ('UserThree', 'UserThreeComment', 3, 'orderTrackingNoThree');
+INSERT INTO review(name, comment, rating, order_tracking_number) VALUES ('UserFour', 'UserFourComment', 4, 'orderTrackingNoFour');
+INSERT INTO review(name, comment, rating, order_tracking_number) VALUES ('UserFive', 'UserFiveComment', 5, 'orderTrackingNoFive');
+
+4ca6431f-cc77-4bf7-93d3-39c3da8856a5

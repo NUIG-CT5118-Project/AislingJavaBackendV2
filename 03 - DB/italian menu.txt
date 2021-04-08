@@ -1,0 +1,64 @@
+CREATE TABLE IF NOT EXISTS `dish_category` (
+  `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
+  `category_name` VARCHAR(255) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`))
+ENGINE=InnoDB
+AUTO_INCREMENT = 1;
+
+
+CREATE TABLE IF NOT EXISTS `dish` (
+  `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(255) DEFAULT NULL,
+  `description` VARCHAR(255) DEFAULT NULL,
+  `unit_price` DECIMAL(13,2) DEFAULT NULL,
+  `category_id` BIGINT(20) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_category` (`category_id`),
+  CONSTRAINT `fk_category` FOREIGN KEY (`category_id`) REFERENCES `dish_category` (`id`)
+) 
+ENGINE=InnoDB
+AUTO_INCREMENT = 1;
+
+-- -----------------------------------------------------
+-- Categories
+-- -----------------------------------------------------
+INSERT INTO dish_category(category_name) VALUES ('Starters');
+INSERT INTO dish_category(category_name) VALUES ('Mains');
+INSERT INTO dish_category(category_name) VALUES ('Sides');
+INSERT INTO dish_category(category_name) VALUES ('Desserts');
+
+-- -----------------------------------------------------
+-- Starters
+-- -----------------------------------------------------
+INSERT INTO dish (name, description, unit_price, category_id) VALUES ('Bruschetta pomodoro', 'Sourdough, garlic, cherry tomatoes, basil, evoo', 8.50, 1);
+INSERT INTO dish (name, description, unit_price, category_id) VALUES ('Bruschetta con prosciutto', 'Italian sourdough, prosciutto di parma, mozzarella, rocket, basil pesto, balsamic', 8.99, 1);
+INSERT INTO dish (name, description, unit_price, category_id) VALUES ('Buttermilk chicken salad', 'Buttermilk chicken, sun dried tomatoes, mini mozzarella, salad, parmesan, buttermilk dressing', 14.99, 1);
+INSERT INTO dish (name, description, unit_price, category_id) VALUES ('Sicilian style prawns', 'Sauteed prawns, chilli, garlic, roasted peppers, onions, toasted sourdough', 10, );
+INSERT INTO dish (name, description, unit_price, category_id) VALUES ('Insalata polpetta', 'Homemade meatballs, pomodoro sauce, mozzarella, salad, garlic bread', 11.50, );
+
+-- -----------------------------------------------------
+-- Mains
+-- -----------------------------------------------------
+INSERT INTO dish (name, description, unit_price, category_id) VALUES ('Bolognese', 'The classic - spaghetti, ragu', 13.99, 2);
+INSERT INTO dish (name, description, unit_price, category_id) VALUES ('Lasagne', 'Our traditional "al forno" pasta', 13.50, 2);
+INSERT INTO dish (name, description, unit_price, category_id) VALUES ('Carbonara', 'Spaghetti, pancetta, cream, egg, parmesan', 13.99, 2);
+INSERT INTO dish (name, description, unit_price, category_id) VALUES ('Boscaiola', 'Rigatoni, pancetta, peas, mushrooms, sausage, tomato, cream', 14.99, 2);
+INSERT INTO dish (name, description, unit_price, category_id) VALUES ('Margherita pizza', 'Mozzarella, tomato, basil', 12.99, 2);
+INSERT INTO dish (name, description, unit_price, category_id) VALUES ('Diavola pizza', 'Pepperoni, sausage, chilli flakes, mozzarella', 15.50, 2);
+
+
+-- -----------------------------------------------------
+-- Desserts
+-- -----------------------------------------------------
+INSERT INTO dish (name, description, unit_price, category_id) VALUES ('Chips', 'Homemade triple cooked fries', 3.50, 3);
+INSERT INTO dish (name, description, unit_price, category_id) VALUES ('Side Salad', 'Freshly made with rocket, crutons, carrot and our signature dressing', 4.50, 3);
+INSERT INTO dish (name, description, unit_price, category_id) VALUES ('Garlic Bread', 'Roasted garlic, parsley and Sicilian butter', 4.50, 3);
+
+-- -----------------------------------------------------
+-- Sides
+-- -----------------------------------------------------
+INSERT INTO dish (name, description, unit_price, category_id) VALUES ('Tiramisu', 'coffee, mascarpone, cocoa', 7.50, 4);
+INSERT INTO dish (name, description, unit_price, category_id) VALUES ('Chocolate Fudge Cake', 'Traditional chocolate cake with a scoop of vanilla ice cream', 7.00, 4);
+INSERT INTO dish (name, description, unit_price, category_id) VALUES ('Panettone', 'Candied fruit, sweetbread, marmalade, chocolate', 6.50, 4);
+INSERT INTO dish (name, description, unit_price, category_id) VALUES ('Baileys Cheesecake', 'Irish cream liqueur, digestives, cream cheese', 7.50, 4);
+INSERT INTO dish (name, description, unit_price, category_id) VALUES ('Selection of Ice Cream', 'Chocolate, vanilla, strawberry', 5.50, 4);
